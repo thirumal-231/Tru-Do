@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-700 h-screen flex justify-center items-center">
+    <div class="w-2/4">
+      <!-- Header -->
+      <h1 class="text-center text-white text-4xl font-bold mb-6">
+        Add Your To-Do
+      </h1>
+
+      <!-- Form Container -->
+      <div class="bg-slate-800 p-6 rounded-lg shadow-inner">
+        <!-- Form -->
+        <form action="/todos" method="post" class="space-y-6">
+          <!-- Title Input -->
+          <div class="flex flex-col space-y-2">
+            <label for="title" class="text-white text-lg font-semibold">
+              Title
+            </label>
+            <input
+              class="rounded-lg px-4 py-3 text-xl bg-gray-100 shadow focus:outline-none focus:ring-2 focus:ring-blue-400"
+              type="text"
+              name="title"
+              id="title"
+              placeholder="Enter todo title"
+            />
+          </div>
+
+          <!-- Priority Dropdown -->
+          <div class="flex flex-col space-y-2">
+            <label for="priority" class="text-white text-lg font-semibold">
+              Priority
+            </label>
+            <select
+              class="rounded-lg px-4 py-3 text-xl bg-gray-100 shadow focus:outline-none focus:ring-2 focus:ring-blue-400"
+              name="priority"
+              id="priority"
+            >
+              <option value="low">Low</option>
+              <option value="mid">Mid</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+
+          <!-- Description Textarea -->
+          <div class="flex flex-col space-y-2">
+            <label for="desc" class="text-white text-lg font-semibold">
+              Description
+            </label>
+            <textarea
+              class="rounded-lg px-4 py-3 text-xl bg-gray-100 shadow focus:outline-none focus:ring-2 focus:ring-blue-400"
+              name="description"
+              id="desc"
+              placeholder="Add a description..."
+              rows="4"
+            ></textarea>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex justify-between space-x-4">
+            <!-- Back Button -->
+            <a
+              href="/todos"
+              class="px-6 py-3 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition duration-300 text-center"
+            >
+              BACK
+            </a>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="px-6 py-3 bg-green-500 text-white rounded-lg shadow hover:bg-green-600 transition duration-300"
+            >
+              ADD
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

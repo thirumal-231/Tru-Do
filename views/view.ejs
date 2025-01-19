@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-700 h-screen flex justify-center items-center">
+    <div class="w-2/4 bg-slate-800 p-6 rounded-lg shadow-lg">
+      <!-- Header -->
+      <h1 class="text-center text-white text-4xl font-bold mb-6">
+        To-Do Details
+      </h1>
+
+      <form action="/todos/<%= todo._id %>?_method=DELETE" method="POST">
+        <!-- To-Do Details -->
+        <div class="space-y-4">
+          <!-- Title -->
+          <div>
+            <h2 class="text-white text-2xl font-semibold">Title:</h2>
+            <p
+              class="bg-gray-100 text-gray-800 rounded-lg px-6 mt-4 py-2 text-gray-300 text-xl"
+            >
+              <%= todo.title %>
+            </p>
+          </div>
+
+          <!-- Description -->
+          <div class="">
+            <h3 class="text-white text-2xl font-semibold">Description:</h3>
+            <p
+              class="text-gray-300 bg-gray-100 text-gray-800 rounded-lg px-6 mt-4 py-6 text-xl"
+            >
+              <%= todo.description %>
+            </p>
+          </div>
+        </div>
+
+        <!-- Back Button -->
+        <div
+          class="flex flex-wrap justify-between mt-4 space-x-4 space-y-4 sm:space-y-0"
+        >
+          <!-- Back Button -->
+          <a
+            href="/todos"
+            class="px-6 py-3 bg-orange-500 text-white rounded-lg shadow hover:bg-orange-600 transition duration-300 text-center w-full sm:w-auto"
+          >
+            BACK
+          </a>
+          <!-- Save Button -->
+          <button
+            type="submit"
+            class="px-6 py-3 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition duration-300 w-full sm:w-auto"
+          >
+            DELETE
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
