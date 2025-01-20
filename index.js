@@ -1,19 +1,17 @@
-const app = require('./app');
-const dotenv = require('dotenv');
-const mongoose = require('mongoose');
+const express = require('express');
+const methodOverride = require('method-override');
+const app = express();
 
-dotenv.config({ path: './config.env' });
+const todoRouter = require('./routes/todoRoutes');
 
-const DB =
-  'DATABASE=mongodb+srv://todo:todo@todo.9cmes.mongodb.net/Todo?retryWrites=true&w=majority&appName=todo';
-mongoose
-  .connect(DB)
-  .then((doc) => {
-    console.log('Successful');
-  })
-  .catch((err) => {
-    console.log('Error', err);
-  });
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(`${__dirname}/public`));
+app.use(express.json());
+app.use(methodOverride('_method'));
 
-const port = 3000;
-app.listen(port, () => {});
+app.set('view engine', 'ejs');
+app.set('views', `${__dirname}/views`);
+
+app.use('/todos', todoRouter);
+
+module.exports = app;
