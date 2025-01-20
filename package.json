@@ -2,7 +2,10 @@
   "name": "to-do",
   "version": "1.0.0",
   "description": "The best todo application out there",
-  "main": "app.js",
+  "main": "server.js",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
