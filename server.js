@@ -4,10 +4,8 @@ const mongoose = require('mongoose');
 
 dotenv.config({ path: './config.env' });
 
-const DB = process.env.DATABASE.replace(
-  '<PASSWORD>',
-  process.env.DATABASE_PASSWORD
-);
+const DB =
+  'DATABASE=mongodb+srv://todo:todo@todo.9cmes.mongodb.net/Todo?retryWrites=true&w=majority&appName=todo';
 mongoose
   .connect(DB)
   .then((doc) => {
